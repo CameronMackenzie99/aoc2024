@@ -15,7 +15,7 @@ func readLevels(file string) []string {
 	return lines
 }
 
-func checkLevelSafe(level []string, dampener bool) bool {
+func checkLevelSafe(level []string) bool {
 	netChange := 0
 	absChange := 0
 
@@ -58,7 +58,7 @@ func Part1() int {
 	safeCount := 0
 	for _, level := range levels {
 		sequence := strings.Split(level, " ")
-		if checkLevelSafe(sequence, false) {
+		if checkLevelSafe(sequence) {
 			safeCount += 1
 		}
 	}
