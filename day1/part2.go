@@ -1,7 +1,5 @@
 package day1
 
-import "fmt"
-
 func calculateOccurences(list1 []int) map[int]int {
 	occurences1 := make(map[int]int)
 
@@ -13,8 +11,8 @@ func calculateOccurences(list1 []int) map[int]int {
 
 }
 
-func Part2() {
-	list1, list2 := readLists("day1/input.txt")
+func Part2() int {
+	list1, list2 := ReadLists("day1/input.txt")
 
 	occurences1 := calculateOccurences(list1)
 	occurences2 := calculateOccurences(list2)
@@ -27,8 +25,8 @@ func Part2() {
 		}
 	}
 
-	fmt.Printf("%v", occurences1)
-	fmt.Printf("%v", occurences2)
+	// fmt.Printf("%v", occurences1)
+	// fmt.Printf("%v", occurences2)
 
-	println(similarityScore)
+	return similarityScore
 }
