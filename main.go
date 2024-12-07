@@ -7,7 +7,6 @@ import (
 )
 
 func measureAndPrint[T any](label string, fn func() T) {
-	// return
 	startTime := time.Now()
 	res := fn()
 	endTime := time.Now()
