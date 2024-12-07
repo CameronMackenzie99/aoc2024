@@ -16,7 +16,6 @@ func measureAndPrint[T any](label string, fn func() T) {
 }
 
 func main() {
-	// day1.Part1()
 	measureAndPrint("Day1Part1", day1.Part1)
 	measureAndPrint("Day1Part2", day1.Part2)
 }
