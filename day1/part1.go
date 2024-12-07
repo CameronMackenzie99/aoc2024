@@ -1,4 +1,4 @@
-package main
+package day1
 
 import (
 	"fmt"
@@ -14,8 +14,8 @@ import (
 // 3   9
 // 3   3
 
-func readLists() (list1, list2 []int) {
-	content, err := os.ReadFile("input.txt")
+func readLists(file string) (list1, list2 []int) {
+	content, err := os.ReadFile(file)
 	if err != nil {
 		panic("ahh")
 	}
@@ -79,8 +79,8 @@ func absDiffInt(x, y int) int {
 	return x - y
 }
 
-func main() {
-	list1, list2 := readLists()
+func Part1() {
+	list1, list2 := readLists("day1/input.txt")
 
 	sortedList1 := mergeSort(list1)
 	sortedList2 := mergeSort(list2)
