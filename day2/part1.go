@@ -1,6 +1,7 @@
 package day2
 
 import (
+	"fmt"
 	"os"
 	"strconv"
 	"strings"
@@ -15,22 +16,48 @@ func readLevels(file string) []string {
 	return lines
 }
 
-func checkLevelSafe(level []string) bool {
+func checkLevelSafe(level []string, dampener bool) bool {
 	netChange := 0
 	absChange := 0
 
 	for i := 0; i < len(level)-1; i++ {
 		diff := stringToInt(level[i]) - stringToInt(level[i+1])
 		absDiff := absDiffInt(stringToInt(level[i]), stringToInt(level[i+1]))
-		if absDiff > 3 || absDiff == 0 {
-			return false
-		}
 		netChange += diff
 		absChange += absDiff
+		// println("level")
+		if absDiff > 3 || absDiff == 0 || absInt(netChange) != absChange {
+			fmt.Println("level")
+			fmt.Printf("%v", level)
+			fmt.Println()
+			if dampener {
+				shortenedLevel := make([]string, len(level))
+				copy(shortenedLevel, level)
+				shortenedLevel = append(shortenedLevel[:i], shortenedLevel[i+1:]...)
+				fmt.Println("shortenedLevel")
+				fmt.Printf("%v", shortenedLevel)
+				fmt.Println()
+
+				if i == len(level)-2 {
+					shortenedLevel := make([]string, len(level))
+					copy(shortenedLevel, level)
+					shortenedLevel = shortenedLevel[:len(shortenedLevel)-1]
+					fmt.Println("shortenedLevel")
+					fmt.Printf("%v", shortenedLevel)
+					fmt.Println()
+					if checkLevelSafe(shortenedLevel, false) {
+						return true
+					}
+				}
+				return checkLevelSafe(shortenedLevel, false)
+			}
+			return false
+
+		}
 
 	}
 
-	return absInt(netChange) == absChange
+	return true
 }
 
 func absInt(x int) int {
@@ -58,7 +85,7 @@ func Part1() int {
 	safeCount := 0
 	for _, level := range levels {
 		sequence := strings.Split(level, " ")
-		if checkLevelSafe(sequence) {
+		if checkLevelSafe(sequence, false) {
 			safeCount += 1
 		}
 	}
