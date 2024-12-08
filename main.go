@@ -1,7 +1,7 @@
 package main
 
 import (
-	"aoc2024/day2"
+	"aoc2024/day3"
 	"fmt"
 	"time"
 )
@@ -18,6 +18,7 @@ func main() {
 	// measureAndPrint("Day1Part1", day1.Part1)
 	// measureAndPrint("Day1Part2", day1.Part2)
 	// measureAndPrint("Day2Part1", day2.Part1)
-	measureAndPrint("Day2Part2", day2.Part2)
+	// measureAndPrint("Day2Part2", day2.Part2)
+	measureAndPrint("Day3Part1", day3.Part1)
 
 }
