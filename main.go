@@ -19,6 +19,7 @@ func main() {
 	// measureAndPrint("Day1Part2", day1.Part2)
 	// measureAndPrint("Day2Part1", day2.Part1)
 	// measureAndPrint("Day2Part2", day2.Part2)
-	measureAndPrint("Day3Part1", day3.Part1)
+	// measureAndPrint("Day3Part1", day3.Part1)
+	measureAndPrint("Day3Part2", day3.Part2)
 
 }
